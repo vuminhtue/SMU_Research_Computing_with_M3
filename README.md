@@ -1,7 +1,8 @@
-# FIXME Lesson title
+# README
 
 This repository generates the corresponding course website based on the original templates
 from [The Carpentries](https://carpentries.org/).
+We use this template for Clemson CCIT workshop on Introduction to Research Computing using Palmetto
 
 ## Maintainer(s)
 
