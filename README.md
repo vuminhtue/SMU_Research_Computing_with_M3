@@ -7,7 +7,7 @@ We use this template for Clemson CCIT workshop on Introduction to Research Compu
 ## Maintainer(s)
 
 * Tue Vu
-* Grigori Yourganove
+* Grigori Yourganov
 * Asher Antao
 * Linh Ngo
 ## Authors
