@@ -10,10 +10,9 @@ keypoints:
 - "M2 contains more than 400 interconnected compute nodes"
 - "a specialized login node runs the SSH server"
 ---
-Structure of M1 and the updated M2:
+Structure ManeFrame II
 
 ![image](https://user-images.githubusercontent.com/43855029/151623191-d2732bf2-7eda-4ed3-a155-bda7010ff083.png)
-
 
 
 The computers that make up the M2 cluster are called *nodes*. Most of the nodes on M2 are *compute nodes*, 
@@ -76,3 +75,10 @@ You will see something like this:
 
 This table shows the amount of different queues, number of running jobs, waiing jobs and idle nodes. The number of *idle nodes* per each queue are completely free node: a node which has, for example, 8 cores, but only 4 of them are used, would not be counted as "free". So this table is a conservative estimate. This picture can change pretty drastically depending on the time of the day and the day of the week.
 
+In brief:
+- 176 standard compute nodes with 36 cores, 256 GB memory and 100 gb/s infiniband
+- 35 medium (768 GB) and 5 high memory (1.5TB) nodes with same bandwidth
+- 36 nodes with NVIDIA P100 GPU each
+- 3 nodes with 8 NVIDIA V100 GPU
+- 5 Virtual Desktop nodes (VDI) for Remote Desktop, can be configured in Linux/Windows OS. Each node has 18 core "Broadwell" processers, 256GB memory and one NVIDIA M5000 GPU
+- All  clusters' nodes are interconnected with high speed infiniband network 100 gb/s
