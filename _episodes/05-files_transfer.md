@@ -25,7 +25,7 @@ Let's configure the connection:
 
 Then, click on "Connect". Another window will pop out asking you to do two-factor verification:
 
-Type "1" (the number one) or the word "push" if you want to get a DUO push notification. After two-factor verification, a yet another new window will pop up, which will contain the contents of your M2 home directory (if this is your first time using M2, it will be empty). You can go to any other folder on Palmetto by changing the path (e.g., `/scratch/users/username`). You can upload files by clicking the "Upload" button, and download files by right-clicking them and selecting "Download".
+Type "1" (the number one) or the word "push" if you want to get a DUO push notification. After two-factor verification, a yet another new window will pop up, which will contain the contents of your M2 home directory (if this is your first time using M2, it will be empty). You can go to any other folder on M2 by changing the path (e.g., `/scratch/users/username`). You can upload files by clicking the "Upload" button, and download files by right-clicking them and selecting "Download".
 
 ## MobaXTerm (Windows users only)
 
