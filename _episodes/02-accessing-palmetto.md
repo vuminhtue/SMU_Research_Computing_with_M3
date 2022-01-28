@@ -1,23 +1,24 @@
 ---
-title: "Accessing the Palmetto Cluster"
+title: "Accessing the M2 Cluster"
 teaching: 15
 exercises: 0
 questions:
-- "How can I access the Palmetto cluster from my local machine?"
+- "How can I access the M2 cluster from my local machine?"
 objectives:
-- SSH client, Terminal, MobaXTerm
+- SSH client, Terminal, MobaXTerm, Open OnDemand
 keypoints:
-- "Palmetto can be accessed by an SSh (secure shell) client"
+- "M2 can be accessed by an SSh (secure shell) client"
 - "Windows user can use `MobaXTerm` application"
 - "Mac users can use the `Terminal` application"
+- "Open OnDemand platform"
 ---
 
-Pametto is accessed using the SSH (["Secure shell"](https://en.wikipedia.org/wiki/Ssh_(Secure_Shell))) protocol. Palmetto runs the *SSH server*; on your local machine, you will need to run *SSH client* which connects to a server using a command-line *terminal*. The commands that are entered on the terminal are processed by the server on Palmetto.
+M2 is accessed using the SSH (["Secure shell"](https://en.wikipedia.org/wiki/Ssh_(Secure_Shell))) protocol.M2 runs the *SSH server*; on your local machine, you will need to run *SSH client* which connects to a server using a command-line *terminal*. The commands that are entered on the terminal are processed by the server on M2.
 
 To start the SSH client on a Mac, you can open the Terminal Application (which is usually located in `Applications` &rarr; `Utilities`) and run the following:
 
 ~~~
-ssh login.palmetto.clemson.edu
+ssh your_username@m2.smu.edu
 ~~~
 {: .bash}
 
@@ -37,7 +38,7 @@ After MobaXterm starts, click the `Session` button.
 
 Select SSH session and use the following parameters (whichever required), then click `OK`:
 
-* Remote host: `login.palmetto.clemson.edu`
+* Remote host: `m2.smu.edu`
 * SSH-browser type: Enhanced SCP
 * Port: 22
 
@@ -53,7 +54,7 @@ you are presented with a welcome message
 and the following "prompt":
 
 ~~~
-[username@login001 ~]$
+[username@login01 ~]$
 ~~~
 {: .bash}
 
@@ -63,7 +64,7 @@ and shows that the shell is waiting for input.
 The prompt may also contain other information:
 this prompt tells you `your username` and which node
 you are connected to -
-`login001` is the "login" node.
+`login01` is the "login" node. There are total 5 login nodes on M2.
 It also tells you your current directory,
 i.e., `~`, which, as you will learn shortly,
 is short for your *home* directory.
