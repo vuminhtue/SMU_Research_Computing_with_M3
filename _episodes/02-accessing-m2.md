@@ -63,7 +63,7 @@ this prompt tells you `your username` and which node you are connected to - `log
 
 It also tells you your current directory, i.e., `~`, which, as you will learn shortly, is short for your *home* directory.
 
-In the figure below, MobaXterm also gives you a GUI browser of your home directory on Palmetto. For Mac OS and Linux terminal, you will only have the
+In the figure below, MobaXterm also gives you a GUI browser of your home directory on M2. For Mac OS and Linux terminal, you will only have the
 command line interface to the right.
 
 ![image](https://user-images.githubusercontent.com/43855029/151621618-9c2b8bfe-7a7e-48ad-843e-5ffde2869912.png)
