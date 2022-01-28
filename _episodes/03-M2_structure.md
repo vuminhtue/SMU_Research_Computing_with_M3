@@ -10,6 +10,11 @@ keypoints:
 - "M2 contains more than 400 interconnected compute nodes"
 - "a specialized login node runs the SSH server"
 ---
+Structure of M1 and the updated M2:
+
+![image](https://user-images.githubusercontent.com/43855029/151623191-d2732bf2-7eda-4ed3-a155-bda7010ff083.png)
+
+
 
 The computers that make up the M2 cluster are called *nodes*. Most of the nodes on M2 are *compute nodes*, 
 that can perform fast calculations on large amounts of data. There are also several special nodes called the *login nodes*; they run the server, 
