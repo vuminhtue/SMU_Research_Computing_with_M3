@@ -1,66 +1,60 @@
 ---
-title: "Running an interactive job on Palmetto"
+title: "Running an interactive job on M2"
 teaching: 15
 exercises: 0
 questions:
 - "How do I request and interact with a compute node?"
 objectives:
-- "`qsub`, `pbsnodes`, modules"
+- "`srun`, `modules`"
 keypoints:
-- "`whatsfree` shows the current Palmetto usage"
-- "`qsub` sends a request for a compute node to the scheduler"
-- "software available on Palmetto is organized into modules according to version"
+- "`srun` sends a request for a compute node to the scheduler"
+- "software available on M2 is organized into modules according to version"
 - "modules need to be loaded before use"
 ---
 
-Now, we arrive at the most important part of today's workshop: getting on the compute nodes. Compute nodes are the real power of Palmetto. Let's see which of the compute nodes are available at the moment:
+Now, we arrive at the most important part of today's workshop: getting on the compute nodes. Compute nodes are the real power of M2. Let's see which of the compute nodes are available at the moment:
 
 ~~~
-whatsfree
+cat /hpc/motd/m2_queue_status 
 ~~~
 {: .bash}
 
 We can see that the cluster is quite busy, but there is a fair amount of compute nodes that are available for us. Now, let's request one compute node. Please type the following (or paste from the website into your SSH terminal):
 
 ~~~
-qsub -I -l select=1:ncpus=4:mem=10gb:interconnect=1g,walltime=2:00:00
+srun -p standard-mem-s -n 1 -c 10 --mem=16G --pty $SHELL
 ~~~
 {: .bash}
 
-It is very important not to make typos, use spaces and upper/lowercases exactly as shown, and use the proper punctuation (note the `:` between `ncpus` and `mem`, and the `,` before walltime). If you make a mistake, nothing wrong will happen, but the scheduler won't understand your request.
+It is very important not to make typos, use spaces and upper/lowercases exactly as shown, and use the proper punctuation. If you make a mistake, nothing wrong will happen, but the scheduler won't understand your request.
 
 Now, let's carefully go through the request:
 
-- `qsub` means that we are asking the scheduler to grant us access to a compute node;
-- `-I` means it's an interactive job (we'll talk about it in a bit);
-- `-l` is the list of resource requirements we are asking for;
-- `select=1` means we are asking for one compute node;
-- `ncpus=4` means that we only need four CPUs on the node (since all Palmetto compute nodes have at least 8 CPUs, we might share the compute node with other users, but it's OK because users who use the same node do not interfere with each other);
-- `mem=10gb` means that we are asking for 10 Gb of RAM (you shouldn't ask for less than 8 Gb); again, memory is specific to the user, and not shared between different users who use the same node);
-- `interconnect=1g` is the type of interconnect (the allowed types are `1g`, `fdr` and `hdr`). If you look at the output of `whatsfree` and `cat /etc/hardware-table`, you will see the different CPU/RAM configurations that are available for these three types of interconnect. Typically, but not always, `1g` nodes have less RAM and a smaller number of CPUs than `fdr` and `hdr` (with the `hdr` nodes being the most powerful interms of RAM and CPUs).
-- finally, `walltime=2:00:00` means that we are asking to use the node for 2 hours; after two hours we will be logged off the compute node if we haven't already disconnected.
+- `srun` means that we are asking the SLURM scheduler to grant us access to a compute node;
+- `-p` means it's an partition targeting to queue standard-mem-s
+- `-n 1` means we are asking for one compute node;
+- `-c 10` means that we only need ten CPUs on the node 
+- `--mem=16G` means that we are asking for 16 Gb of RAM.
+- `--pty $SHELL` means that you are requesting to run in an Interactive node
 
 This is actually a very modest request, and the scheduler should grant it right away. Sometimes, when we are asking for much substantial amount of resources (for example, 20 nodes with 40 cores and 370 Gb of RAM), the scheduler cannot satisfy our request, and will put us into the queue so we will have to wait until the node becomes available. 
 
 Once the request is granted, you will see something like that:
 
 ~~~
-qsub (Warning): Interactive jobs will be treated as not rerunnable
-qsub: waiting for job 631266.pbs02 to start
-qsub: job 631266.pbs02 ready
-
-(base) [gyourga@node0193 ~]$
+srun: job 25719448 queued and waiting for resources
+[tuev@b123 ~]$
 ~~~
 {: .output}
 
-Please note two important things. First, our prompt changes from `login001` no `nodeXXXX`, where `XXXX` is some four-digit number. This is the number of the node that we got (in our case, 0193). The second one is the job ID, which is 631266. We can see the information about the compute node by using the `pbsnodes` command:
+Please note two important things. First, our prompt changes from `login01` to `b123` which is the compute node name
 
 ~~~
-pbsnodes node0193
+sinfo b123
 ~~~
 {: .bash}
 
-Here is the information about the node that I was assigned to (node0102):
+Here is the information about the node that I was assigned to (b123):
 
 ~~~
 (base) [gyourga@node0193 ~]$ pbsnodes node0193
