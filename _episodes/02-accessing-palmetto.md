@@ -42,35 +42,28 @@ Select SSH session and use the following parameters (whichever required), then c
 * SSH-browser type: Enhanced SCP
 * Port: 22
 
-<img src="../fig/mobaxterm_1.png" alt="MobaXterm SSH Session" style="height:350px">
+![image](https://user-images.githubusercontent.com/43855029/151621177-eeb100d7-1371-460f-b421-45fe6d9cb4aa.png)
 
 At this stage, for both Mac and Windows, you will be asked to enter your username
 and password, then DUO option.
+**Note**: when typing in password, due to security, you won't see anything on the screen. So make sure you type the password correctly.
 
-<img src="../fig/mobaxterm_2.png" alt="Login interface" style="height:350px">
+![image](https://user-images.githubusercontent.com/43855029/151621297-73ad463d-6be3-4957-af3e-2a33729654fa.png)
 
-When logged in,
-you are presented with a welcome message
-and the following "prompt":
+When logged in, you are presented with a welcome message and the following "prompt":
 
 ~~~
 [username@login01 ~]$
 ~~~
+
 {: .bash}
 
-The prompt in a bash shell usually
-contains a (`$`) sign,
-and shows that the shell is waiting for input.
-The prompt may also contain other information:
-this prompt tells you `your username` and which node
-you are connected to -
-`login01` is the "login" node. There are total 5 login nodes on M2.
-It also tells you your current directory,
-i.e., `~`, which, as you will learn shortly,
-is short for your *home* directory.
+The prompt in a bash shell usually contains a (`$`) sign, and shows that the shell is waiting for input. The prompt may also contain other information:
+this prompt tells you `your username` and which node you are connected to - `login01` is the "login" node. (There are total 5 login nodes on M2)
 
-In the figure below, MobaXterm also gives you a GUI browser of your home
-directory on Palmetto. For Mac OS and Linux terminal, you will only have the
+It also tells you your current directory, i.e., `~`, which, as you will learn shortly, is short for your *home* directory.
+
+In the figure below, MobaXterm also gives you a GUI browser of your home directory on Palmetto. For Mac OS and Linux terminal, you will only have the
 command line interface to the right.
 
-<img src="../fig/mobaxterm_4.png" alt="MobaXterm interface" style="height:350px">
+![image](https://user-images.githubusercontent.com/43855029/151621618-9c2b8bfe-7a7e-48ad-843e-5ffde2869912.png)
