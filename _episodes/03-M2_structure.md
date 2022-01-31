@@ -29,6 +29,38 @@ Another special node is the *scheduler*; M2 users can get from the
 login node to the compute nodes by submitting a request to the scheduler, and the scheduler will assign them to the most appropriate compute node.
 M2 also has a few so-called "service" nodes, which serve special purposes like transferring code and data to and from the cluster, and hosting web applications.
 
+To see the configuration of nodes, max memory and walltime in each of the partition (queue), you can type
+
+~~~
+sinfo --Format="PartitionName,Nodes:10,CPUs:8,Memory:12,Time:15,Features:18,Gres:14"
+~~~
+
+~~~
+PARTITION           NODES     CPUS    MEMORY      TIMELIMIT      AVAIL_FEATURES    GRES
+standard-mem-s      81        36      256000      1-00:00:00     basenode          (null)
+standard-mem-m      30        36      256000      7-00:00:00     basenode          (null)
+standard-mem-l      25        36      256000      30-00:00:00    basenode          (null)
+htc                 42        36      256000      1-00:00:00     basenode          (null)
+development         2         36      256000      2:00:00        basenode          (null)
+development         1         256     384000      2:00:00        knl               (null)
+development         1         36      256000      2:00:00        p100              gpu:1(S:0)
+medium-mem-1-s      20        36      768000      1-00:00:00     medmem            (null)
+medium-mem-1-m      11        36      768000      7-00:00:00     medmem            (null)
+medium-mem-1-l      6         36      768000      30-00:00:00    medmem            (null)
+medium-mem-2        3         24      768000      14-00:00:00    (null)            (null)
+high-mem-1          6         36      1536000     14-00:00:00    (null)            (null)
+high-mem-2          5         40      1536000     14-00:00:00    highmem           (null)
+high-mem-2          1         40      1531968     14-00:00:00    (null)            (null)
+gpgpu-1             33        36      256000      7-00:00:00     p100              gpu:1(S:0)
+gpgpu-1             3         36      256000      7-00:00:00     p100              gpu:1(S:0-1)
+desktop             11        36      256000      1-00:00:00     basenode          (null)
+desktop-vdi         3         36      256000      1-00:00:00     dcv,dcv2,vdi      gpu:1
+mic                 39        256     384000      14-00:00:00    knl               (null)
+fp-gpgpu-3          2         40      384000      infinite       volta             gpu:volta:2(S:
+v100x8              3         36      768000      7-00:00:00     volta8            gpu:volta:8(S:
+~~~
+
+
 To see which nodes are available at the moment, you can type 
 
 ~~~
