@@ -23,6 +23,9 @@ $ module load python/3 gcc-9.2
 $ module load cuda/11.4.2-dft6rfn cudnn/8.2.4.15-11.4-tfeuowy
 $ conda create --prefix ~/tensorflow_2.9 python=3.8 pip
 $ source activate ~/tensorflow_2.9/  
+$ pip install tensorflow==2.9.1 --no-cache-dir
+$ pip install ipykernel
+$ python3 -m ipykernel install --user --name tensorflow_2.9 --display-name TensorflowGPU29
 ```
 
 Once installation done, check if tensorflow can find any GPU?
@@ -33,4 +36,5 @@ Once installation done, check if tensorflow can find any GPU?
   >>> tf.config.list_physical_devices('GPU')
   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
   ```
+  
   
