@@ -11,8 +11,9 @@ keypoints:
 ---
 
 
- ## Installing Tensorflow-GPU
- 
+ ## Installing Tensorflow-GPU to ManeFrame II
+Note that some of the previous model of Tensorflow (2.2, 2.4) are not working well with our preexisting cuda library. Therefore I encourage everyone to use the latest version 2.9.1 (the most current at this time of writing) to avoid missing library.
+
 Here we use 1 node with P100 GPU to do the installation:
 
 Instruction from login node:
@@ -38,6 +39,8 @@ Once installation done, check if tensorflow can find any GPU?
   ```
   
 ## Installing Tensorflow-GPU to SuperPOD
+  
+  Here we gonna install TF GPU to SuperPOD using A100 GPU.
   
   It is similar practice to install Tensorflow with GPU support to SuperPOD with the only difference is how you load the module.
   Following are the modules that you should load:
