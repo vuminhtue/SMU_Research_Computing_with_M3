@@ -37,4 +37,12 @@ Once installation done, check if tensorflow can find any GPU?
   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
   ```
   
+## Installing Tensorflow-GPU to SuperPOD
   
+  It is similar practice to install Tensorflow with GPU support to SuperPOD with the only difference is how you load the module.
+  Following are the modules that you should load:
+  
+```bash
+module load spack conda 
+module load cuda-11.4.4-gcc-10.3.0-ctldo35 cudnn-8.2.4.15-11.4-gcc-10.3.0-eluwegp
+```
