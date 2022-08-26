@@ -1,8 +1,8 @@
 ---
 title: Setup
 ---
-Users need to obtain the Palmetto account:
-https://www.palmetto.clemson.edu/palmetto/basic/new/
+Users need to obtain the MII account:
+Send email to help@smu.edu with HPC on the title
 
 
 
