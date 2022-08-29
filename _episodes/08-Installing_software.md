@@ -38,7 +38,7 @@ Once installation done, check if tensorflow can find any GPU?
   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
   
-  Note: in order to enable GPU run for Tensorflow via Jupyter Notebook, we need to add the following lines to Custom environment settings when requesting a node in the Open OnDemand:
+  Note: in order to **enable** GPU run for Tensorflow via Jupyter Notebook, we need to add the following lines to **Custom environment settings** when requesting a node in the **Open OnDemand**:
 
 ```bash
 module load gcc-9.2
