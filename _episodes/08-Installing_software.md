@@ -31,12 +31,20 @@ $ python3 -m ipykernel install --user --name tensorflow_2.9 --display-name Tenso
 
 Once installation done, check if tensorflow can find any GPU?
   
-  ```bash
+```bash
   $  python
   >>> import tensorflow as tf
   >>> tf.config.list_physical_devices('GPU')
   [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
-  ```
+```
+  
+  Note: in order to enable GPU run for Tensorflow via Jupyter Notebook, we need to add the following lines to Custom environment settings when requesting a node in the Open OnDemand:
+
+```bash
+module load gcc-9.2
+module load cuda/11.4.2-dft6rfn cudnn/8.2.4.15-11.4-tfeuowy
+```
+  
   
 ## Installing Tensorflow-GPU to SuperPOD
   
