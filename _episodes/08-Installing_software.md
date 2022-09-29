@@ -10,8 +10,8 @@ keypoints:
 
 ---
 
-
- ## Installing Tensorflow-GPU to ManeFrame II
+## Installing Tensorflow-GPU to ManeFrame II
+ 
 Note that some of the previous model of Tensorflow (2.2, 2.4) are not working well with our preexisting cuda library. Therefore I encourage everyone to use the latest version 2.9.1 (the most current at this time of writing) to avoid missing library.
 
 Here we use 1 node with P100 GPU to do the installation:
