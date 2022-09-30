@@ -1,5 +1,5 @@
 ---
-title: "Installing software"
+title: "Installing Tensorflow with GPU support"
 teaching: 15
 exercises: 0
 questions:
