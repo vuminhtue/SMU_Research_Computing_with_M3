@@ -1,5 +1,5 @@
 ---
-title: "Running an interactive job on M2"
+title: "Running an interactive job on M3"
 teaching: 15
 exercises: 0
 questions:
@@ -12,17 +12,12 @@ keypoints:
 - "modules need to be loaded before use"
 ---
 
-Now, we arrive at the most important part of today's workshop: getting on the compute nodes. Compute nodes are the real power of M2. Let's see which of the compute nodes are available at the moment:
-
-~~~
-cat /hpc/motd/m2_queue_status 
-~~~
-{: .bash}
+Now, we arrive at the most important part of today's workshop: getting on the compute nodes. Compute nodes are the real power of M3. 
 
 We can see that the cluster is quite busy, but there is a fair amount of compute nodes that are available for us. Now, let's request one compute node. Please type the following (or paste from the website into your SSH terminal):
 
 ~~~
-srun -p standard-mem-s -n 1 -c 10 --mem=16G --pty $SHELL
+srun -A CFAllocation -p standard-s -n 1 -c 10 --mem=16G --walltime=1:00:00 --pty $SHELL
 ~~~
 {: .bash}
 
@@ -31,10 +26,11 @@ It is very important not to make typos, use spaces and upper/lowercases exactly 
 Now, let's carefully go through the request:
 
 - `srun` means that we are asking the SLURM scheduler to grant us access to a compute node;
-- `-p standard-mem-s` means it's an partition targeting to queue standard-mem-s
+- `-p standard-s` means it's an partition targeting to queue standard-s
 - `-n 1` means we are asking for one compute node;
 - `-c 10` means that we only need ten CPUs on the node 
 - `--mem=16G` means that we are asking for 16 Gb of RAM.
+- `--walltime=1:00:00` means that we are asking for 1 hour walltime
 - `--pty $SHELL` means that you are requesting to run in an Interactive node
 
 This is actually a very modest request, and the scheduler should grant it right away. Sometimes, when we are asking for much substantial amount of resources (for example, 20 nodes with 40 cores and 370 Gb of RAM), the scheduler cannot satisfy our request, and will put us into the queue so we will have to wait until the node becomes available. 
@@ -43,11 +39,11 @@ Once the request is granted, you will see something like that:
 
 ~~~
 srun: job 25719448 queued and waiting for resources
-[tuev@b123 ~]$
+[tuev@c123 ~]$
 ~~~
 {: .output}
 
-Please note two important things. First, our prompt changes from `login01` to `b123` which is the compute node name.
+Please note two important things. First, our prompt changes from `login01` to `c123` which is the compute node name.
 
 In order to see how many jobs that you are running:
 
@@ -79,22 +75,22 @@ This will bring you back to the login node. See how your prompt has changed to `
 srun: error: Unable to allocate resources: Access/permission denied
 ```
 
-For some jobs, you might want to get a GPU, or perhaps two GPUs. For such requests, the `srun` command needs to specify the number of GPUs (one or two) and the queue of GPUs. For example, let's request a NVIDIA Tesla P100 
+For some jobs, you might want to get a GPU, or perhaps two GPUs. For such requests, the `srun` command needs to specify the number of GPUs (one or two) and the queue of GPUs. For example, let's request a NVIDIA Tesla V100 
 
 ~~~
-srun -p gpgpu-1 --gres=gpu:1 -n 1 -c 10 --mem=25G -t 1-00:00:0 --pty $SHELL
+srun -A CFAllocation -p gpg-dev --gres=gpu:1 -n 1 -c 10 --mem=25G -t 1-00:00:0 --pty $SHELL
 ~~~
 {: .bash}
 
-Here we asked the scheduler to allocate 1 node with 25G memory in partition gpgpu-1 (the partition with P100 GPU) and asked for 1 GPU for that node (--gres=gpu:1) with the walltime of 1 hour.
+Here we asked the scheduler to allocate 1 node with 25G memory in partition gpgpu-1 (the partition with V100 GPU) and asked for 1 GPU for that node (--gres=gpu:1) with the walltime of 1 hour.
 
 If the scheduler receives a request it cannot satisfy, it will complain and not assign you to a compute node (you will stay on the login node). For example, if you ask for a node with 2.5TB of memory.
 
 It is possible to ask for several compute nodes at a time, for example `-n 4` will give you 4 compute nodes. This will give you more nodes to run your parallel jobs.
 
-It is very important to remember that you shouldn't run computations on the login node, because the login node is shared between everyone who logs into m2, so your computations will interfere with other people's login processes. However, once you are on a compute node, you can run some computations, because each user gets their own CPUs and RAM so there is no interference. If you are on the login node, let's get on the compute node:
+It is very important to remember that you shouldn't run computations on the login node, because the login node is shared between everyone who logs into M3, so your computations will interfere with other people's login processes. However, once you are on a compute node, you can run some computations, because each user gets their own CPUs and RAM so there is no interference. If you are on the login node, let's get on the compute node:
 
-We have a lot of software installed on M2, but most of it is organized into *modules*, which need to be loaded. For example, we have many versions of Matlab installed on M2, but if you type
+We have a lot of software installed on M3, but most of it is organized into *modules*, which need to be loaded. For example, we have many versions of Matlab installed on M3, but if you type
 
 ~~~
 matlab
@@ -107,7 +103,7 @@ you will get an error:
 ~~~
 {: .error}
 
-In order to use Matlab, as well as most other software installed on Palmetto, you need to load the Matlab module. To see which modules are available on M2, please type
+In order to use Matlab, you need to load the Matlab module. To see which modules are available on M3, please type
 
 ~~~
 module avail
