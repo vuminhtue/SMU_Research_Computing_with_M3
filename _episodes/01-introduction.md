@@ -9,7 +9,7 @@ keypoints:
 ---
 M3 or **ManeFrame III** is a *supercomputing cluster*: a set of powerful computers that are connected to each other. It is built and maintained by Southern Methodist University.
 
-<img src="https://www.tx-learn.org/about/activities_accomplishments/images/path_MainFrame.jpg" style="height:350px">
+<img src="![path_MainFrame](https://github.com/user-attachments/assets/d4d68729-b81d-4199-ab37-9135551cec4b)" style="height:350px">
  
 M3 was built in 2024 to replace the retired cluster ManeFrame II (M2) and has been having several updates.
 
