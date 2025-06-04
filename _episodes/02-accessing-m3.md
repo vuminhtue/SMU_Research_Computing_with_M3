@@ -39,7 +39,3 @@ The prompt in a bash shell usually contains a (`$`) sign, and shows that the she
 this prompt tells you `your username` and which node you are connected to - `login01` is the "login" node. (There are total 5 login nodes on M2)
 
 It also tells you your current directory, i.e., `~`, which, as you will learn shortly, is short for your *home* directory.
-
-In the figure below, MobaXterm also gives you a GUI browser of your home directory on M3. 
-
-![image](https://user-images.githubusercontent.com/43855029/151621618-9c2b8bfe-7a7e-48ad-843e-5ffde2869912.png)
